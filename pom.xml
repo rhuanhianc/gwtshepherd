@@ -4,12 +4,13 @@
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <groupId>org.gwtshepherd</groupId>
-  <version>0.4.12</version>
+  <version>0.4.24</version>
   <artifactId>gwtshepherd</artifactId>
   <packaging>jar</packaging>
 
   <properties>
     <gwt.version>2.9.0</gwt.version>
+   <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
 
   <dependencies>
@@ -59,6 +60,7 @@
         <groupId>net.ltgt.gwt.maven</groupId>
         <artifactId>gwt-maven-plugin</artifactId>
         <configuration>
+        	<sourceLevel>1.8</sourceLevel>
           <moduleName>org.gwtshepherd.GwtShepherd</moduleName>
           <moduleShortName>GwtShepherd</moduleShortName>
         </configuration>
