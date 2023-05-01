@@ -33,4 +33,9 @@ public class StepOptions {
     @JsProperty
     public native void setCancelIcon(CancelIconOptions cancelIcon);
     
+    @JsProperty
+    public native void setScrollTo(ScrollOptions scrollTo);
+
+    @JsProperty
+    public native void setTippyOptions(TippyOptions tippyOptions);
 }
