@@ -23,5 +23,10 @@ public class ShepherdTour {
     @JsMethod
     public native void addStep(StepOptions step);
 
-    // Outros métodos conforme necessário...
+    @JsMethod
+    public native void next();
+
+    @JsMethod
+    public native void back();
+
 }
