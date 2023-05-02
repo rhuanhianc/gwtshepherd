@@ -8,10 +8,10 @@ import org.gwtshepherd.api.TourManager;
  */
 public class ButtonHelper {
 
-    public ButtonHelper(TourManager tourManagerInstance) {
+    public ButtonHelper(TourManager tourManagerInstance, String textTooltip) {
         createFloatingButton(tourManagerInstance);
         createTooltip();
-        showTooltip(10000); // Exibe o tooltip por 10 segundos
+        showTooltip(10000,textTooltip); // Exibe o tooltip por 10 segundos
     }
 
     
@@ -47,20 +47,20 @@ public class ButtonHelper {
         $doc.body.appendChild(tooltip);
     }-*/;
 
-    private native void toggleTooltip() /*-{
-        var tooltipContainer = $doc.getElementById("tooltip-helper-container");
-        if (tooltipContainer === null) {
-            return;
-        }
-        if (tooltipContainer.style.display === "none" || tooltipContainer.style.display === "") {
-            tooltipContainer.style.display = "block";
-            // Atualize o conteúdo do tooltip conforme necessário
-            tooltipContainer.innerHTML = "Conteúdo do aviso flutuante (tooltip) aqui";
-        } else {
-            tooltipContainer.style.display = "none";
-        }
-    }-*/;
-    private native void showTooltip(int timeout) /*-{
+    // private native void toggleTooltip() /*-{
+    //     var tooltipContainer = $doc.getElementById("tooltip-helper-container");
+    //     if (tooltipContainer === null) {
+    //         return;
+    //     }
+    //     if (tooltipContainer.style.display === "none" || tooltipContainer.style.display === "") {
+    //         tooltipContainer.style.display = "block";
+    //         // Atualize o conteúdo do tooltip conforme necessário
+    //         tooltipContainer.innerHTML = "Conteúdo do aviso flutuante (tooltip) aqui";
+    //     } else {
+    //         tooltipContainer.style.display = "none";
+    //     }
+    // }-*/;
+    private native void showTooltip(int timeout, String textTooltip) /*-{
         var tooltipContainer = $doc.getElementById("tooltip-helper-container");
         if (tooltipContainer === null) {
             return;
@@ -68,7 +68,7 @@ public class ButtonHelper {
     
         tooltipContainer.style.display = "block";
         // Atualize o conteúdo do tooltip conforme necessário
-        tooltipContainer.innerHTML = "Caso precise de ajuda, clique aqui.";
+        tooltipContainer.innerHTML = textTooltip;
     
         // Remova o tooltip após o intervalo especificado
         setTimeout(function() {
